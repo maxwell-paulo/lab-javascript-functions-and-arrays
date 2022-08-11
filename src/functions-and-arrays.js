@@ -80,9 +80,21 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(array) {
+  let wordsSum = 0;
+  if (array.length === 0) {
+    return null;
+  }
+  if (array.length === 1) {
+    return array[0].length;
+  }
+  for (let i = 0; i < array.length; i++) {
+    wordsSum += array[i].length;
+  }
+  return wordsSum / array.length;
+}
 
-// Bonus - Iteration #4.1
+// Bonus - Iteration #4.3
 function avg() {}
 
 // Iteration #5: Unique arrays
@@ -100,7 +112,17 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  let newArray = [];
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (!newArray.includes(array[i])) newArray.push(array[i]);
+  }
+  return newArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
