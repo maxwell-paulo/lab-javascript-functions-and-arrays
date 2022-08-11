@@ -44,8 +44,31 @@ function sumNumbers(array) {
   return finalSum;
 }
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
+function sum(formiga) {
+  let elementsSum = 0;
+  if (formiga.length === 0) {
+    return 0;
+  }
+
+  if (formiga.length === 1) {
+    return formiga[0];
+  }
+
+  for (let i = 0; i < formiga.length; i++) {
+    if (typeof formiga[i] === "number" || typeof formiga[i] === "boolean") {
+      elementsSum += formiga[i];
+    }
+    if (typeof formiga[i] === "string") {
+      elementsSum += formiga[i].length;
+    }
+
+    if (typeof formiga[i] === "array" || typeof formiga[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+  }
+  return elementsSum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -95,7 +118,23 @@ function averageWordLength(array) {
 }
 
 // Bonus - Iteration #4.3
-function avg() {}
+function avg(array) {
+  somaTotal = 0;
+
+  if (array.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number" || typeof array[i] === "boolean") {
+      somaTotal += array[i];
+    }
+    if (typeof array[i] === "string") {
+      somaTotal += array[i].length;
+    }
+  }
+  return somaTotal / array.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -119,7 +158,9 @@ function uniquifyArray(array) {
   }
 
   for (let i = 0; i < array.length; i++) {
-    if (!newArray.includes(array[i])) newArray.push(array[i]);
+    if (!newArray.includes(array[i])) {
+      newArray.push(array[i]);
+    }
   }
   return newArray;
 }
